@@ -18,7 +18,6 @@ class BaseModel:
             self.created_at = datetime.datetime.now()
             self.updated_at = datetime.datetime.now()
 
-
     def __str__(self):
         return "[{}] ({}) {}".format(
             self.__class__.__name__,
