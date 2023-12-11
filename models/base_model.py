@@ -5,15 +5,20 @@ import uuid
 
 
 class BaseModel:
-    id = str(uuid.uuid4())
-    created_at = datetime.datetime.now()
-    updated_at = datetime.datetime.now()
-
     def __init__(self, *args, **kwargs):
         if kwargs:
             for kw in kwargs:
+                if kw == "created_at" or kw == "updated_at":
+                    setattr(self, kw, datetime.datetime.strptime(
+                        kwargs[kw], "%Y-%m-%dT%H:%M:%S.%f"))
                 if not kw == "__class__":
                     setattr(self, kw, kwargs[kw])
+        else:
+            self.id = str(uuid.uuid4())
+            self.created_at = datetime.datetime.now()
+            self.updated_at = datetime.datetime.now()
+            self.storage.new(self)
+
 
     def __str__(self):
         return "[{}] ({}) {}".format(
@@ -30,5 +35,4 @@ class BaseModel:
         obj_dict["__class__"] = self.__class__.__name__
         obj_dict["created_at"] = self.created_at.isoformat()
         obj_dict["updated_at"] = self.updated_at.isoformat()
-        obj_dict["id"] = self.id
         return obj_dict
