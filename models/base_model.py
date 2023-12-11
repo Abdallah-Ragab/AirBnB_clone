@@ -1,5 +1,3 @@
-#!/usr/bin/python3
-
 import datetime
 import uuid
 
@@ -26,9 +24,10 @@ class BaseModel:
         self.updated_at = datetime.datetime.now()
 
     def to_dict(self):
-        obj_dict = self.__dict__.copy()
-        obj_dict["__class__"] = self.__class__.__name__
-        obj_dict["created_at"] = self.created_at.isoformat()
-        obj_dict["updated_at"] = self.updated_at.isoformat()
+        obj_dict = {}
         obj_dict["id"] = self.id
+        obj_dict["created_at"] = self.created_at.isoformat()
+        obj_dict["__class__"] = self.__class__.__name__
+        obj_dict["updated_at"] = self.updated_at.isoformat()
+        obj_dict = {**obj_dict, **self.__dict__.copy()}
         return obj_dict
