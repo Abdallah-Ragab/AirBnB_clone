@@ -1,3 +1,17 @@
+"""
+This module contains the implementation of the HolbertonBnB command interpreter.
+
+The command interpreter allows users to interact with the AirBnB clone project
+by creating, displaying, updating, and deleting instances of various classes.
+
+Classes:
+- HBNBCommand: Represents the command interpreter.
+
+Functions:
+- parse: Parses the command arguments.
+"""
+
+
 import cmd
 import re
 from shlex import split
