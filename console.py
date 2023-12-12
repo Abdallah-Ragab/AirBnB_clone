@@ -26,9 +26,9 @@ class HBNBCommand(cmd.Cmd):
         """Empty line"""
         pass
 
-    # def do_create(self, arg):
-    #     """Create a new instance of BaseModel"""
-    #     pass
+    def do_create(self, arg):
+        """Create a new instance of BaseModel"""
+        pass
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
