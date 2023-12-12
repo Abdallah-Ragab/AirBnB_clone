@@ -2,11 +2,11 @@ from models import storage
 import os
 import json
 import unittest
-
+import copy
 class TestFileStorage(unittest.TestCase):
     def setUp(self):
         self.file_path = "test_file.json"
-        # copy of the storage class
+        self.storage = copy.deepcopy(storage)  # Make a copy of the storage class
         self.storage = storage
         self.storage.__file_path = self.file_path
         self.storage.reload()
