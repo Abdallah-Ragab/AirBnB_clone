@@ -29,6 +29,55 @@ def parse(arg):
         return retl
 
 
+import cmd
+import re
+
+class HBNBCommand(cmd.Cmd):
+    """Defines the HolbertonBnB command interpreter.
+
+    This class represents the command interpreter for the HolbertonBnB project.
+    It inherits from the `cmd.Cmd` class provided by the `cmd` module.
+
+    Attributes:
+        prompt (str): The command prompt.
+        __classes (set): The set of available classes in the project.
+    """
+
+    prompt = "(hbnb) "
+    __classes = {
+        "BaseModel",
+        "User",
+        "State",
+        "City",
+        "Place",
+        "Amenity",
+        "Review"
+    }
+
+    # Rest of the code...
+class HBNBCommand(cmd.Cmd):
+    """Defines the HolbertonBnB command interpreter.
+
+    This class represents the command interpreter for the HolbertonBnB project.
+    It inherits from the `cmd.Cmd` class provided by the `cmd` module.
+
+    Attributes:
+        prompt (str): The command prompt.
+        __classes (set): The set of available classes in the project.
+    """
+
+    prompt = "(hbnb) "
+    __classes = {
+        "BaseModel",
+        "User",
+        "State",
+        "City",
+        "Place",
+        "Amenity",
+        "Review"
+    }
+
+    # Rest of the code...
 class HBNBCommand(cmd.Cmd):
     """Defines the HolbertonBnB command interpreter.
     Attributes:
