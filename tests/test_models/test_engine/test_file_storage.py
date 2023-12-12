@@ -1,4 +1,4 @@
-from models import storage
+from models import storage, BaseModel
 import os
 import json
 import unittest
@@ -9,6 +9,7 @@ class TestFileStorage(unittest.TestCase):
         self.storage = copy.deepcopy(storage)  # Make a copy of the storage class
         self.storage = storage
         self.storage.__file_path = self.file_path
+        print (self.storage.__file_path)
         self.storage.reload()
 
     def tearDown(self):
