@@ -1,4 +1,5 @@
 import json
+from models.base_model import BaseModel
 
 class FileStorage:
     """Represent an abstracted storage engine.
