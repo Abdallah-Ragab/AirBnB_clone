@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 
+import time
 import unittest
 from models.base_model import BaseModel
 from datetime import datetime
@@ -20,8 +21,11 @@ class TestBaseModel(unittest.TestCase):
 
     def test_save(self):
         model = BaseModel()
+        print("old_updated_at: {}".format(model.updated_at))
         old_updated_at = model.updated_at
+        time.sleep(0.1)
         model.save()
+        print("new_updated_at: {}".format(model.updated_at))
         self.assertNotEqual(old_updated_at, model.updated_at)
 
     def test_to_dict(self):
